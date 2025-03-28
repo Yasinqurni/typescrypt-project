@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: ./dockerfile
+    container_name: ts-project
+    ports:
+      - "1010:1010"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    command: npm start
